@@ -68,3 +68,27 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Data We will be tracking with the wordle
+-- solution
+-- 5 letter string eg:apple
+-- previous string
+-- array of past guesses
+-- each past guess is an array of letter objects [{},{},{},{}]
+-- each object represents a letter in the guess word
+{key:'a',color:'yellow'}
+-- correct guess
+-- string 'hello'
+--keypad letters
+-- array of letter objects [{key:'a',color:'green'},{},{}....]
+-- number of turns == 6
+
+-- Gameflow
+-- entering words
+--user enters a letter & a square is filled with that letter
+-- delete : deletes the prveiously entered letter from the current guess
+-- submit : check for the letters
+-corect pos : green
+-incorrect pos : yellow
+-incorrect letter: gray
+-- success : unless all the boxes are green -> or tries extinguish
