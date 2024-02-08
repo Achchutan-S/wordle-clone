@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  color: #eee;
-  background-color: #222;
+  /* color: #eee;
+  background-color: #222; */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -16,9 +16,9 @@ code {
 h1 {
   font-size: 1.2em;
   padding: 20px 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #333;
   margin: 0 0 30px 0;
-  color: #fff;
+  color: #333;
 }
 
 /* Rows */
@@ -42,22 +42,38 @@ h1 {
 }
 
 .row > div.green {
-  background: #5ac85a;
-  border-color: #5ac850;
+  --background: #5ac85a;
+  --border-color: #5ac850;
   color: #fff;
   animation: flip 0.8s ease forwards;
 }
 .row > div.grey {
-  background: #a1a1a1;
-  border-color: #a1a1a0;
+  --background: #a1a1a1;
+  --border-color: #a1a1a0;
   color: #fff;
   animation: flip 0.8s ease forwards;
 }
 .row > div.yellow {
-  background: #e2cc68;
-  border-color: #e2cc60;
+  --background: #e2cc68;
+  --border-color: #e2cc60;
   color: #fff;
   animation: flip 0.8s ease forwards;
+}
+.row.current > div.filled {
+  animation: bounce 0.2s ease-in-out forwards;
+}
+/* timings */
+.row > div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.row > div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.row > div:nth-child(4) {
+  animation-delay: 0.6s;
+}
+.row > div:nth-child(5) {
+  animation-delay: 0.8s;
 }
 
 /* animations */
@@ -65,14 +81,36 @@ h1 {
 @keyframes flip {
   0% {
     transform: rotateX(0);
+    background: #fff;
+    border-color: #333;
   }
   45% {
     transform: rotateX(90deg);
+    background: #fff;
+    border-color: #333;
   }
   55% {
     transform: rotateX(90deg);
+    background: var(--background);
+    border-color: var(--border-color);
   }
   100% {
     transform: rotateX(0deg);
+    background: var(--background);
+    border-color: var(--border-color);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+    border-color: #ddd;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    border-color: #333;
   }
 }
